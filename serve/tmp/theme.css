@@ -1,0 +1,21 @@
+:root {
+	/* Colors */
+	--Page: #000000;
+	--PageFill: #f8f7fc;
+
+	/* Typography */
+	--GeometricHumanist: Avenir,
+		Montserrat,
+		Corbel,
+		'URW Gothic',
+		source-sans-pro,
+		sans-serif;
+	font-weight: normal;
+	--HumanistFont: Seravek,
+		'Gill Sans Nova',
+		Ubuntu,
+		Calibri,
+		'DejaVu Sans',
+		source-sans-pro,
+		sans-serif;
+}

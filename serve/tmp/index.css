@@ -1,0 +1,212 @@
+@import "./layout.css";
+@import "./theme.css";
+
+html {
+	background-color: var(--Page);
+	color: var(--PageText);
+}
+
+canvas {
+	position: fixed;
+	inset: 0 0 auto 0;
+	width: 100dvw;
+	height: calc(100dvh / 5 * 4);
+	pointer-events: none;
+}
+
+body {
+	display: flex;
+
+	/* Layout */
+	place-items: center;
+	place-content: center;
+}
+
+pi-battle {
+	&::part(screen) {
+		contain: layout;
+		width: 500px;
+	}
+
+	&::part(board) {
+		aspect-ratio: 1 / 1;
+		display: grid;
+	}
+
+	&::part(cells),
+	&::part(bg-cells),
+	&::part(background) {
+		/* Layout */
+		grid-column: 1 / -1;
+		grid-row: 1 / -1;
+	}
+
+	&::part(background) {
+		/* Layout */
+		block-size: 100%;
+		inline-size: 100%;
+		z-index: 1;
+
+		/* Appearance */
+		opacity: 50%;
+		object-fit: cover;
+		mix-blend-mode: luminosity;
+
+		/* Behavior */
+		pointer-events: none;
+	}
+
+	&::part(cells) {
+		display: grid;
+
+		/* Layout */
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: repeat(5, 1fr);
+
+		/* Appearance */
+		border: 0.5px solid #000;
+	}
+
+	&::part(cell) {
+		border: 0.5px solid #000;
+		transition: rotate 150ms ease-in-out;
+		transition-property: box-shadow, rotate, scale;
+	}
+
+	&::part(cell region-1) {
+		background: #9d2219;
+		color: #FFFFFF;
+	}
+
+	&::part(cell):hover {
+		scale: 1.01;
+		box-shadow: #0009 0 0 4px;
+		z-index: 1;
+	}
+
+	&::part(cell region-2) {
+		transform: rotate3d(1, 1, 0, -15deg);
+		transform-origin: top right;
+	}
+
+	&::part(cell region-2) {
+		background: #ffe803;
+		color: #000000;
+	}
+
+	&::part(cell region-3) {
+		background: #641722;
+		color: #FFFFFF;
+	}
+
+	&::part(cell region-4) {
+		background: #05833c;
+		color: #FFFFFF;
+	}
+
+	&::part(cell region-5) {
+		background: #30679e;
+		color: #FFFFFF;
+	}
+
+	&::part(cell region-6) {
+		background: #DE1511;
+		color: #FFFFFF;
+	}
+
+	&::part(cell region-7) {
+		background: #ffeedd;
+		color: #000000;
+	}
+
+	&::part(cell edge-t) {
+		border-top-width: 2px;
+	}
+
+	&::part(cell edge-b) {
+		border-bottom-width: 2px;
+	}
+
+	&::part(cell edge-l) {
+		border-left-width: 2px;
+	}
+
+	&::part(cell edge-r) {
+		border-right-width: 2px;
+	}
+
+	&::part(cell row-1) {
+		border-top-width: 4px;
+	}
+
+	&::part(cell col-5) {
+		border-right-width: 4px;
+	}
+
+	&::part(cell col-1) {
+		border-left-width: 4px;
+	}
+
+	&::part(cell row-5) {
+		border-bottom-width: 4px;
+	}
+
+	&::part(bg-cells) {
+		display: grid;
+
+		/* Layout */
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: repeat(5, 1fr);
+		z-index: 1;
+
+		/* Appearance */
+		mix-blend-mode: color-burn;
+
+		/* Behavior */
+		pointer-events: none;
+	}
+
+	&::part(bg-cell) {
+		/* Layout */
+		block-size: 100%;
+		inline-size: 100%;
+		grid-column: 1 / 1;
+		grid-row: 1 / 1;
+
+		/* Appearance */
+		object-fit: cover;
+		opacity: 25%;
+
+		/* Behavior */
+		pointer-events: none;
+
+	}
+
+	&::part(bg-cell region-1) {
+		grid-column: 1 / 4;
+		grid-row: 1 / 3;
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 66.6666% 100%, 66.6666% 50%, 0 50%);
+	}
+
+	&::part(bg-cell region-2) {
+		grid-column: 4 / 6;
+		grid-row: 1 / 4;
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 50% 66%, 0 66%);
+	}
+
+	&::part(bg-cell region-3) {
+		grid-column: 1 / 3;
+		grid-row: 2 / 5;
+		clip-path: polygon(0 0, 100% 0, 100% 66%, 50% 66%, 50% 100%, 0 100%);
+	}
+
+	&::part(bg-cell region-4) {
+		grid-column: 3 / 6;
+		grid-row: 3 / 6;
+	}
+
+	&::part(bg-cell region-5) {
+		grid-column: 1 / 4;
+		grid-row: 4 / 6;
+	}
+}

@@ -1,0 +1,73 @@
+#game-name {
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+#game-board {
+	display: grid;
+	margin: 20px auto;
+	border: 2px solid #222;
+}
+
+.cell {
+	width: 50px;
+	height: 50px;
+	border: 1px solid #ccc;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2rem;
+	cursor: pointer;
+	user-select: none;
+	color: #FFF;
+}
+
+.region-0 {
+	background: #9d2219;
+	/* light blue */
+}
+
+.region-1 {
+	background: #69299c;
+	/* soft green */
+}
+
+.region-2 {
+	background: #ffe803;
+	color: #000;
+	/* soft orange */
+}
+
+.region-3 {
+	background: #322922;
+	/* light red/pink */
+}
+
+.region-4 {
+	background: #05833c;
+	/* lavender */
+}
+
+.region-5 {
+	background: #111d29;
+	/* light teal (unique) */
+}
+
+.region-6 {
+	background: #DE1511;
+	/* warm butter yellow */
+}
+
+.region-7 {
+	background: #ffeedd;
+	color: #000000;
+	/* warm butter yellow */
+}
+
+/* Add more region styles as needed */
+
+.game-controls {
+	display: flex;
+	gap: 1rem;
+	place-content: center;
+}
